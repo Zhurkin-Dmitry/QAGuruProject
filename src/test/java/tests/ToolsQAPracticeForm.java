@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -11,6 +13,15 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ToolsQAPracticeForm {
 
+    String firstName = "MyFirstName",
+            lastName = "MyLastName",
+            email = "userEmail@gmail.com",
+            phoneNumber = "9876543210",
+            subjects = "Math",
+            address = "MyMainCurrentAddress",
+            state = "Haryana",
+            city = "Karnal";
+
     @BeforeAll
     static void setup() {
         Configuration.startMaximized = true;
@@ -19,11 +30,11 @@ public class ToolsQAPracticeForm {
     @Test
     void selenideRegistrationForm() {
         open("https://demoqa.com/automation-practice-form");
-        $("[id=firstName]").setValue("MyFirstName");
-        $("[id=lastName]").setValue("MyLastName");
-        $("[id=userEmail]").setValue("userEmail@gmail.com");
+        $("[id=firstName]").setValue(firstName);
+        $("[id=lastName]").setValue(lastName);
+        $("[id=userEmail]").setValue(email);
         $x("//label[text()='Male']").click();
-        $("[id=userNumber]").setValue("9876543210");
+        $("[id=userNumber]").setValue(phoneNumber);
         // +++ блок выбора даты рождения
         $("[id=dateOfBirthInput]").click();     //открытие календаря
         $(byClassName("react-datepicker__month-select")).click();   //открытие списка с месяцем
@@ -32,15 +43,15 @@ public class ToolsQAPracticeForm {
         $(byClassName("react-datepicker__year-select")).selectOptionByValue("2000");    //выбор года
         $(byClassName("react-datepicker__day--020")).click();   //выбор дня
         // --- блок выбора даты рождения
-        $("#subjectsInput").setValue("Math").pressEnter();
+        $("#subjectsInput").setValue(subjects).pressEnter();
         $("div#hobbiesWrapper label", 1).click();
         $("div#hobbiesWrapper label", 3).click();
         $("[id=uploadPicture]").uploadFile(new File("src/test/resources/1.jpg"));
-        $("[id=currentAddress]").setValue("MyMainCurrentAddress").pressTab();
+        $("[id=currentAddress]").setValue(address).pressTab();
         $("[id=state]").click();
-        $(byText("Haryana")).click();
+        $(byText(state)).click();
         $("[id=city]").click();
-        $(byText("Karnal")).click();
+        $(byText(city)).click();
         $("[id=submit]").click();
         // +++зона проверок заполнения значений
         $(byClassName("table-responsive")).shouldHave(text("Student Name"), text("MyFirstName" + " " + "MyLastName"));
