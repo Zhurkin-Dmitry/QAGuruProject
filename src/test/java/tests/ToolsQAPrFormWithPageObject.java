@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static io.qameta.allure.Allure.step;
+
 public class ToolsQAPrFormWithPageObject {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -33,32 +35,64 @@ public class ToolsQAPrFormWithPageObject {
 
     @Test
     void selenideRegistrationForm() {
-        registrationPage.pageOpen(checkForm);
-        registrationPage.typeFirstName(firstName);
-        registrationPage.typeLastName(lastName);
-        registrationPage.typeEmail(email);
-        registrationPage.chooseGender(gender);
-        registrationPage.typePhoneNumber(phoneNumber);
-        registrationPage.setDateOfBirth(monthNum, year);
-        registrationPage.typeSubject(subjects);
-        registrationPage.chooseHobbies();
-        registrationPage.upLoadFile(picture);
-        registrationPage.setAddressInput(address);
-        registrationPage.chooseState(state);
-        registrationPage.chooseCity(city);
-        registrationPage.clickSubmit();
-        registrationPage.checkTable(firstName,
-                lastName,
-                email,
-                gender,
-                phoneNumber,
-                monthText,
-                year,
-                subjects,
-                picture,
-                address,
-                state,
-                city);
-        registrationPage.closeTable(checkForm);
+        step("Открываем форму", () -> {
+            registrationPage.pageOpen(checkForm);
+        });
+        step("Вводим имя", () -> {
+            registrationPage.typeFirstName(firstName);
+        });
+        step("Вводим фамилию", () -> {
+            registrationPage.typeLastName(lastName);
+        });
+        step("Вводим email", () -> {
+            registrationPage.typeEmail(email);
+        });
+        step("Выбираем пол", () -> {
+            registrationPage.chooseGender(gender);
+        });
+        step("Вводим номер телефона", () -> {
+            registrationPage.typePhoneNumber(phoneNumber);
+        });
+        step("Выбираем дату рождения", () -> {
+            registrationPage.setDateOfBirth(monthNum, year);
+        });
+        step("Выбираем предмет", () -> {
+            registrationPage.typeSubject(subjects);
+        });
+        step("Выбираем любимые хобби", () -> {
+            registrationPage.chooseHobbies();
+        });
+        step("Загружаем изображение", () -> {
+            registrationPage.upLoadFile(picture);
+        });
+        step("Вводим адресс", () -> {
+            registrationPage.setAddressInput(address);
+        });
+        step("Выбираем штат", () -> {
+            registrationPage.chooseState(state);
+        });
+        step("Выбираем город", () -> {
+            registrationPage.chooseCity(city);
+        });
+        step("Отправляем данные", () -> {
+            registrationPage.clickSubmit();
+        });
+        step("Проверяем заполнение данных", () -> {
+            registrationPage.checkTable(firstName,
+                    lastName,
+                    email,
+                    gender,
+                    phoneNumber,
+                    monthText,
+                    year,
+                    subjects,
+                    picture,
+                    address,
+                    state,
+                    city);
+        });
+        step("Закрываем таблицу с данными", () -> {
+            registrationPage.closeTable(checkForm);
+        });
     }
 }
