@@ -91,8 +91,8 @@ public class ToolsQAPrFormWithPageObject {
                     state,
                     city);
         });
-        step("Закрываем таблицу с данными", () -> {
+        /*step("Закрываем таблицу с данными", () -> {
             registrationPage.closeTable(checkForm);
-        });
+        });*/
     }
 }

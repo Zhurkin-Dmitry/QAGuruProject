@@ -120,8 +120,8 @@ public class RegistrationPage {
         tableInput.shouldHave(text("State and City"), text(state + " " + city));
     }
 
-    public void closeTable(String value) {
+    /*public void closeTable(String value) {
         tableCloseInput.click();
         checkFormInput.shouldHave(text(value));
-    }
+    }*/
 }
