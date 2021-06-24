@@ -1,14 +1,12 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
 import static io.qameta.allure.Allure.step;
 
-public class ToolsQAPrFormWithPageObject {
+public class ToolsQAPrFormWithPageObject extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     Faker faker = new Faker();
@@ -27,11 +25,6 @@ public class ToolsQAPrFormWithPageObject {
             state = "Haryana",
             city = "Karnal",
             checkForm = "Student Registration Form";
-
-    @BeforeAll
-    static void setup() {
-        Configuration.startMaximized = true;
-    }
 
     @Test
     void selenideRegistrationForm() {
