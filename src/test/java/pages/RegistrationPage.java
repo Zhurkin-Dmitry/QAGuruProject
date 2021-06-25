@@ -28,8 +28,8 @@ public class RegistrationPage {
             cityInput = $("[id=city]"),
             submitInput = $("[id=submit]"),
             tableInput = $(byClassName("table-responsive")),
-            tableCloseInput = $("[id=closeLargeModal]"),
             checkFormInput = $(".practice-form-wrapper");
+    //tableCloseInput = $("[id=closeLargeModal]"),
 
     public void pageOpen(String value) {
         open("https://demoqa.com/automation-practice-form");
