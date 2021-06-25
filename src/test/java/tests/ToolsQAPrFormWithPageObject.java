@@ -31,45 +31,49 @@ public class ToolsQAPrFormWithPageObject extends TestBase {
         step("Открываем форму", () -> {
             registrationPage.pageOpen(checkForm);
         });
-        step("Вводим имя", () -> {
-            registrationPage.typeFirstName(firstName);
+
+        step("Заполняем форму регистрации", () -> {
+            step("Вводим имя", () -> {
+                registrationPage.typeFirstName(firstName);
+            });
+            step("Вводим фамилию", () -> {
+                registrationPage.typeLastName(lastName);
+            });
+            step("Вводим email", () -> {
+                registrationPage.typeEmail(email);
+            });
+            step("Выбираем пол", () -> {
+                registrationPage.chooseGender(gender);
+            });
+            step("Вводим номер телефона", () -> {
+                registrationPage.typePhoneNumber(phoneNumber);
+            });
+            step("Выбираем дату рождения", () -> {
+                registrationPage.setDateOfBirth(monthNum, year);
+            });
+            step("Выбираем предмет", () -> {
+                registrationPage.typeSubject(subjects);
+            });
+            step("Выбираем любимые хобби", () -> {
+                registrationPage.chooseHobbies();
+            });
+            step("Загружаем изображение", () -> {
+                registrationPage.upLoadFile(picture);
+            });
+            step("Вводим адресс", () -> {
+                registrationPage.setAddressInput(address);
+            });
+            step("Выбираем штат", () -> {
+                registrationPage.chooseState(state);
+            });
+            step("Выбираем город", () -> {
+                registrationPage.chooseCity(city);
+            });
+            step("Отправляем данные", () -> {
+                registrationPage.clickSubmit();
+            });
         });
-        step("Вводим фамилию", () -> {
-            registrationPage.typeLastName(lastName);
-        });
-        step("Вводим email", () -> {
-            registrationPage.typeEmail(email);
-        });
-        step("Выбираем пол", () -> {
-            registrationPage.chooseGender(gender);
-        });
-        step("Вводим номер телефона", () -> {
-            registrationPage.typePhoneNumber(phoneNumber);
-        });
-        step("Выбираем дату рождения", () -> {
-            registrationPage.setDateOfBirth(monthNum, year);
-        });
-        step("Выбираем предмет", () -> {
-            registrationPage.typeSubject(subjects);
-        });
-        step("Выбираем любимые хобби", () -> {
-            registrationPage.chooseHobbies();
-        });
-        step("Загружаем изображение", () -> {
-            registrationPage.upLoadFile(picture);
-        });
-        step("Вводим адресс", () -> {
-            registrationPage.setAddressInput(address);
-        });
-        step("Выбираем штат", () -> {
-            registrationPage.chooseState(state);
-        });
-        step("Выбираем город", () -> {
-            registrationPage.chooseCity(city);
-        });
-        step("Отправляем данные", () -> {
-            registrationPage.clickSubmit();
-        });
+
         step("Проверяем заполнение данных", () -> {
             registrationPage.checkTable(firstName,
                     lastName,
@@ -84,8 +88,8 @@ public class ToolsQAPrFormWithPageObject extends TestBase {
                     state,
                     city);
         });
-        /*step("Закрываем таблицу с данными", () -> {
+        /* step("Закрываем таблицу с данными", () -> {
             registrationPage.closeTable(checkForm);
-        });*/
+        }); */
     }
 }
