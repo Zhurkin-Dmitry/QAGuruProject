@@ -22,8 +22,8 @@ public class ToolsQAPrFormWithPageObject extends TestBase {
             subjects = "Math",
             picture = "1.jpg",
             address = faker.address().fullAddress(),
-            state = "Haryana",
-            city = "Karnal",
+            state = "NCR",
+            city = "Delhi",
             checkForm = "Student Registration Form";
 
     @Test
